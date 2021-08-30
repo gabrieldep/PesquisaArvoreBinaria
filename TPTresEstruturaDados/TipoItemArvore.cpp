@@ -1,4 +1,5 @@
 #include "TipoItemArvore.h"
+#include <iostream>
 
 TipoItemArvore::TipoItemArvore()
 {
@@ -44,4 +45,5 @@ std::string TipoItemArvore::GetNome()
 
 void TipoItemArvore::Imprime()
 {
+    std::cout << this->nome << " " << this->dados << std::endl;
 }

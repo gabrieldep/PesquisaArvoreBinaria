@@ -4,6 +4,13 @@
 
 using namespace std;
 
+void RealizarComandos(FILE* arquivo) {
+	while (!feof(arquivo))
+	{
+
+	}
+}
+
 void PreencheVetor(const char caminho[], ArvoreBinaria* arvore) {
 	char* result;
 	char Linha[100];
@@ -28,12 +35,14 @@ void PreencheVetor(const char caminho[], ArvoreBinaria* arvore) {
 		}
 		aux++;
 	}
+	arvore->Imprime();
+	RealizarComandos(arquivo);
 	fclose(arquivo);
 }
 
 int main(int argc, const char* argv[])
 {
+	Fila* comandos = new Fila();
 	ArvoreBinaria* arvore = new ArvoreBinaria();
 	PreencheVetor(argv[1], arvore);
-	arvore->Imprime();
 }

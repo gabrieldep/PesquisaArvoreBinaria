@@ -19,7 +19,7 @@ std::string TipoNo::GetNome()
 
 void TipoNo::ImprimeNome()
 {
-	std::cout << this->nome << std::endl;
+	std::cout << this->nome << " ";
 }
 
 void TipoNo::ImprimeDados()

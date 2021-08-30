@@ -4,6 +4,11 @@
 
 using namespace std;
 
+/// <summary>
+/// Faz a leitura dos arquivos e executa as operacoes solicitadas.
+/// </summary>
+/// <param name="arquivo">Arquivo a ser lido</param>
+/// <param name="arvore">Arvore com os dados a serem tratados</param>
 void RealizarComandos(FILE* arquivo, ArvoreBinaria* arvore) {
 	char* result;
 	char Linha[100];
@@ -25,6 +30,11 @@ void RealizarComandos(FILE* arquivo, ArvoreBinaria* arvore) {
 	}
 }
 
+/// <summary>
+/// Faz a leitura do arquivo e realiza as operacoes na arvore.
+/// </summary>
+/// <param name="caminho">Caminho do arquivo</param>
+/// <param name="arvore">Arvore a ser tratada.</param>
 void PreencheVetor(const char caminho[], ArvoreBinaria* arvore) {
 	char* result;
 	char Linha[100];

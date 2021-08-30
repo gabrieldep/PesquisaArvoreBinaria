@@ -19,11 +19,19 @@ TipoItem::TipoItem(std::string dados)
 	this->dados = dados;
 }
 
+/// <summary>
+/// Define o valor do atributo dados
+/// </summary>
+/// <param name="valor">Valor a ser atribuido</param>
 void TipoItem::SetDados(std::string valor)
 {
 	this->dados = valor;
 }
 
+/// <summary>
+/// Pega o valor dos dados
+/// </summary>
+/// <returns>Valor do atributo dados.</returns>
 std::string TipoItem::GetDados()
 {
 	return this->dados;

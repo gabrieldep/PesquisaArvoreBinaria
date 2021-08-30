@@ -14,7 +14,14 @@ void RealizarComandos(FILE* arquivo, ArvoreBinaria* arvore) {
 		if (result == NULL)break;
 		string s = result;
 
-		arvore->Pesquisa(s);
+		TipoNo no = arvore->Pesquisa(s);
+		int number = 0;
+		Fila* fila = no.GetDados();
+		while (fila->GetTamanho() != 0) {
+			number += stoi(fila->Desenfilera().GetDados(), 0, 2);
+		}
+		std::cout << no.GetNome() << " " << number << std::endl;
+			arvore->Remove(s);
 	}
 }
 
@@ -43,7 +50,9 @@ void PreencheVetor(const char caminho[], ArvoreBinaria* arvore) {
 		aux++;
 	}
 	arvore->Imprime();
+	std::cout << std::endl;
 	RealizarComandos(arquivo, arvore);
+	arvore->Imprime();
 	fclose(arquivo);
 }
 

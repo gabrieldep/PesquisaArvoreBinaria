@@ -5,9 +5,7 @@ class TipoCelula :
 {
 	public:
 		TipoCelula();
-		TipoCelula(TipoItem item);
 	private:
-		TipoItem item;
 		TipoCelula* prox;
 
 		friend class Fila;

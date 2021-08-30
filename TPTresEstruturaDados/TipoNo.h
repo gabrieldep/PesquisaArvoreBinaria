@@ -8,6 +8,7 @@ class TipoNo
 		TipoNo();
 		void SetNome(std::string nome);
 		std::string GetNome();
+		Fila* GetDados();
 		void ImprimeNome();
 		void ImprimeDados();
 	private:

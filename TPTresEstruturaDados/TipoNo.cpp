@@ -17,6 +17,11 @@ std::string TipoNo::GetNome()
 	return this->nome;
 }
 
+Fila* TipoNo::GetDados()
+{
+	return dadosBinarios;
+}
+
 void TipoNo::ImprimeNome()
 {
 	std::cout << this->nome << " ";

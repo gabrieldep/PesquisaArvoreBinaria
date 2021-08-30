@@ -1,6 +1,7 @@
 #include "ArvoreBinaria.h"
 #include "TipoItemArvore.h"
 #include "StringServices.h"
+#include <iostream>
 
 ArvoreBinaria::ArvoreBinaria()
 {
@@ -19,11 +20,12 @@ void ArvoreBinaria::Insere(TipoItemArvore tipoItem)
 
 TipoNo ArvoreBinaria::Pesquisa(std::string nome)
 {
-	return PesquisaRecursiva(raiz, nome);
+	return PesquisaRecursiva(raiz, nome.erase(nome.length() - 1));
 }
 
 void ArvoreBinaria::Remove(std::string nome)
 {
+	RemoveRecursiva(raiz, nome);
 }
 
 void ArvoreBinaria::Caminha(int tipo)
@@ -49,7 +51,7 @@ void ArvoreBinaria::InsereRecursivo(TipoNo*& p, TipoItemArvore item)
 
 		TipoCelula* celula = new TipoCelula();
 		celula->SetDados(item.GetDados());
-
+		
 		p->dadosBinarios->Enfileira(*celula);
 	}
 	else {
@@ -88,6 +90,18 @@ TipoNo ArvoreBinaria::PesquisaRecursiva(TipoNo*& p, std::string chave)
 
 void ArvoreBinaria::RemoveRecursiva(TipoNo*& p, std::string chave)
 {
+	if (p == NULL) {
+		return;
+	}
+	if (p->GetNome() == chave || p->GetNome().erase(p->GetNome().length() - 1) == chave) {
+		p = p->esq;
+	}
+	else if (StringServices().VemAntes(chave, p->GetNome())) {
+		RemoveRecursiva(p->esq, chave);
+	}
+	else if (StringServices().VemAntes(p->GetNome(), chave)) {
+		RemoveRecursiva(p->dir, chave);
+	}
 }
 
 void ArvoreBinaria::ApagaRecursivo(TipoNo* p)

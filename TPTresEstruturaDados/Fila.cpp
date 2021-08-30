@@ -1,6 +1,10 @@
 #include "Fila.h"
 #include <cstddef>
 
+/// <summary>
+/// Metodo auxiliar que imprime os elementos da fila recursivamente
+/// </summary>
+/// <param name="celula"></param>
 void Fila::ImprimeRecursiva(TipoCelula* celula)
 {
 	celula->Imprime();
@@ -61,6 +65,9 @@ void Fila::Enfileira(TipoCelula tipoCelula)
 	tamanho++;
 }
 
+/// <summary>
+/// Imprime elementos da fila.
+/// </summary>
 void Fila::Imprime()
 {
 	ImprimeRecursiva(this->frente);

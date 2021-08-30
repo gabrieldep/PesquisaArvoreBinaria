@@ -17,6 +17,15 @@ void ArvoreBinaria::Insere(TipoItemArvore tipoItem)
 	InsereRecursivo(raiz, tipoItem);
 }
 
+TipoNo ArvoreBinaria::Pesquisa(std::string nome)
+{
+	return PesquisaRecursiva(raiz, nome);
+}
+
+void ArvoreBinaria::Remove(std::string nome)
+{
+}
+
 void ArvoreBinaria::Caminha(int tipo)
 {
 }
@@ -49,6 +58,29 @@ void ArvoreBinaria::InsereRecursivo(TipoNo*& p, TipoItemArvore item)
 			InsereRecursivo(p->dir, item);
 		}
 	}
+}
+
+TipoNo ArvoreBinaria::PesquisaRecursiva(TipoNo*& p, std::string chave)
+{
+	TipoNo aux;
+
+	if (p == NULL) {
+		aux.SetNome("404");
+		return aux;
+	}
+	if (StringServices().VemAntes(chave, p->GetNome())) {
+		return PesquisaRecursiva(p->esq, chave);
+	}
+	else if (StringServices().VemAntes(p->GetNome(), chave)) {
+		return PesquisaRecursiva(p->dir, chave);
+	}
+	else {
+		return *p;
+	}
+}
+
+void ArvoreBinaria::RemoveRecursiva(TipoNo*& p, std::string chave)
+{
 }
 
 void ArvoreBinaria::ApagaRecursivo(TipoNo* p)

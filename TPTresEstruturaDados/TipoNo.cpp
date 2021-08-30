@@ -21,3 +21,8 @@ void TipoNo::ImprimeNome()
 {
 	std::cout << this->nome << std::endl;
 }
+
+void TipoNo::ImprimeDados()
+{
+	dadosBinarios->Imprime();
+}

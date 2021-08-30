@@ -9,6 +9,7 @@ class TipoNo
 		void SetNome(std::string nome);
 		std::string GetNome();
 		void ImprimeNome();
+		void ImprimeDados();
 	private:
 		std::string nome;
 		Fila* dadosBinarios;

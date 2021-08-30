@@ -1,6 +1,14 @@
 #include "Fila.h"
 #include <cstddef>
 
+void Fila::ImprimeRecursiva(TipoCelula* celula)
+{
+	celula->Imprime();
+	if (celula->prox != NULL) {
+		ImprimeRecursiva(celula->prox);
+	}
+}
+
 /// <summary>
 /// Construtor da fila.
 /// </summary>
@@ -51,6 +59,11 @@ void Fila::Enfileira(TipoCelula tipoCelula)
 	tras->prox = nova;
 	tras = nova;
 	tamanho++;
+}
+
+void Fila::Imprime()
+{
+	ImprimeRecursiva(this->frente);
 }
 
 /// <summary>

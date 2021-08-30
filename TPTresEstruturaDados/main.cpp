@@ -35,6 +35,5 @@ int main(int argc, const char* argv[])
 {
 	ArvoreBinaria* arvore = new ArvoreBinaria();
 	PreencheVetor(argv[1], arvore);
-
-	arvore->Pesquisa("Emma").ImprimeDados();
+	arvore->Imprime();
 }

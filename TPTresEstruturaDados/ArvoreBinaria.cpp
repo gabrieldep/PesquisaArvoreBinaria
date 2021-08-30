@@ -32,7 +32,7 @@ void ArvoreBinaria::Caminha(int tipo)
 
 void ArvoreBinaria::Imprime()
 {
-	PreOrdem(raiz);
+	InOrdem(raiz);
 }
 
 void ArvoreBinaria::Limpa()
@@ -107,8 +107,18 @@ void ArvoreBinaria::PreOrdem(TipoNo* p)
 
 void ArvoreBinaria::InOrdem(TipoNo* p)
 {
+	if (p != NULL) {
+		InOrdem(p->esq);
+		p->ImprimeNome();
+		InOrdem(p->dir);
+	}
 }
 
 void ArvoreBinaria::PosOrdem(TipoNo* p)
 {
+	if (p != NULL) {
+		PosOrdem(p->esq);
+		PosOrdem(p->dir);
+		p->ImprimeNome();
+	}
 }

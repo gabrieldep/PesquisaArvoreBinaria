@@ -1,5 +1,6 @@
 #pragma once
 #include "TipoNo.h"
+#include "TipoItemArvore.h"
 class ArvoreBinaria
 {
 	public:
@@ -8,6 +9,7 @@ class ArvoreBinaria
 
 		void Insere(TipoItemArvore tipoItem);
 		void Caminha(int tipo);
+		void Imprime();
 		void Limpa();
 
 	private:

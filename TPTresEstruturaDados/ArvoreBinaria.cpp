@@ -21,6 +21,11 @@ void ArvoreBinaria::Caminha(int tipo)
 {
 }
 
+void ArvoreBinaria::Imprime()
+{
+	PreOrdem(raiz);
+}
+
 void ArvoreBinaria::Limpa()
 {
 }
@@ -57,6 +62,11 @@ void ArvoreBinaria::PorNivel()
 
 void ArvoreBinaria::PreOrdem(TipoNo* p)
 {
+	if (p != NULL) {
+		p->ImprimeNome();
+		PreOrdem(p->esq);
+		PreOrdem(p->dir);
+	}
 }
 
 void ArvoreBinaria::InOrdem(TipoNo* p)

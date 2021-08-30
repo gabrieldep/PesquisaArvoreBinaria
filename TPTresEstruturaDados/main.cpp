@@ -9,8 +9,8 @@ void PreencheVetor(const char caminho[], ArvoreBinaria* arvore) {
 	char Linha[100];
 	FILE* arquivo = fopen(caminho, "rt");
 	int aux = 0;
-	int tamanho = *fgets(Linha, 100, arquivo) - 48;
-	tamanho = 34;
+	result = fgets(Linha, 100, arquivo);
+	int tamanho = stoi(result);
 	while (!feof(arquivo) && aux < tamanho)
 	{
 		result = fgets(Linha, 100, arquivo);

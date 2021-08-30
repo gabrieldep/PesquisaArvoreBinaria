@@ -1,4 +1,5 @@
 #include "TipoNo.h"
+#include <iostream>
 
 TipoNo::TipoNo()
 {
@@ -14,4 +15,9 @@ void TipoNo::SetNome(std::string nome)
 std::string TipoNo::GetNome()
 {
 	return this->nome;
+}
+
+void TipoNo::ImprimeNome()
+{
+	std::cout << this->nome << std::endl;
 }

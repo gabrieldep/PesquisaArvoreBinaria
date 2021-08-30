@@ -42,7 +42,6 @@ void ArvoreBinaria::InsereRecursivo(TipoNo*& p, TipoItemArvore item)
 		p->dadosBinarios->Enfileira(*celula);
 	}
 	else {
-		
 		if (StringServices().VemAntes(item.GetNome(), p->GetNome())) {
 			InsereRecursivo(p->esq, item);
 		}

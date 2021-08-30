@@ -6,6 +6,9 @@ StringServices::StringServices()
 
 bool StringServices::VemAntes(std::string primeira, std::string segunda)
 {
+	if (primeira == segunda) {
+		return false;
+	}
 	int tamanho = primeira.size() > segunda.size() ?
 		segunda.size() : primeira.size();
 

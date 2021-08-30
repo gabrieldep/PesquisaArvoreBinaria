@@ -20,7 +20,7 @@ void ArvoreBinaria::Insere(TipoItemArvore tipoItem)
 
 TipoNo ArvoreBinaria::Pesquisa(std::string nome)
 {
-	return PesquisaRecursiva(raiz, nome.erase(nome.length() - 1));
+	return PesquisaRecursiva(raiz, nome);
 }
 
 void ArvoreBinaria::Remove(std::string nome)
@@ -93,14 +93,14 @@ void ArvoreBinaria::RemoveRecursiva(TipoNo*& p, std::string chave)
 	if (p == NULL) {
 		return;
 	}
-	if (p->GetNome() == chave || p->GetNome().erase(p->GetNome().length() - 1) == chave) {
-		p = p->esq;
-	}
-	else if (StringServices().VemAntes(chave, p->GetNome())) {
+	if (StringServices().VemAntes(chave, p->GetNome())) {
 		RemoveRecursiva(p->esq, chave);
 	}
 	else if (StringServices().VemAntes(p->GetNome(), chave)) {
 		RemoveRecursiva(p->dir, chave);
+	}
+	else {
+		p = p->esq;
 	}
 }
 

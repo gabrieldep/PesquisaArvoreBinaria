@@ -139,7 +139,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ArvoreBinaria.cpp" />
+    <ClCompile Include="Fila.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="StringServices.cpp" />
+    <ClCompile Include="TipoCelula.cpp" />
+    <ClCompile Include="TipoItem.cpp" />
+    <ClCompile Include="TipoItemArvore.cpp" />
+    <ClCompile Include="TipoNo.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ArvoreBinaria.h" />
+    <ClInclude Include="Fila.h" />
+    <ClInclude Include="StringServices.h" />
+    <ClInclude Include="TipoCelula.h" />
+    <ClInclude Include="TipoItem.h" />
+    <ClInclude Include="TipoItemArvore.h" />
+    <ClInclude Include="TipoNo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

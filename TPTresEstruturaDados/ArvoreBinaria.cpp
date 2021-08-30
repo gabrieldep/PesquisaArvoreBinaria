@@ -100,7 +100,15 @@ void ArvoreBinaria::RemoveRecursiva(TipoNo*& p, std::string chave)
 		RemoveRecursiva(p->dir, chave);
 	}
 	else {
-		p = p->esq;
+		if (p->esq == NULL) {
+			p = p->dir;
+		}
+		else if (p->dir == NULL) {
+			p = p->esq;
+		}
+		else {
+			Antecessor(p, p->esq);
+		}
 	}
 }
 
@@ -142,4 +150,17 @@ void ArvoreBinaria::PosOrdem(TipoNo* p)
 		PosOrdem(p->dir);
 		p->ImprimeNome();
 	}
+}
+
+void ArvoreBinaria::Antecessor(TipoNo* q, TipoNo*& r)
+{
+	if (r->dir != NULL) {
+		Antecessor(q, r->dir);
+		return;
+	}
+	q->nome = r->nome;
+	q->dadosBinarios= r->dadosBinarios;
+	q = r;
+	r = r->esq;
+	free(q);
 }

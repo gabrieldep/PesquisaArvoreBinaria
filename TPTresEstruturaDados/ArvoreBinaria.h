@@ -23,6 +23,7 @@ class ArvoreBinaria
 		void PreOrdem(TipoNo* p);
 		void InOrdem(TipoNo* p);
 		void PosOrdem(TipoNo* p);
+		void Antecessor(TipoNo* q, TipoNo*& r);
 
 		TipoNo* raiz;
 };

@@ -4,10 +4,17 @@
 
 using namespace std;
 
-void RealizarComandos(FILE* arquivo) {
+void RealizarComandos(FILE* arquivo, ArvoreBinaria* arvore) {
+	char* result;
+	char Linha[100];
+
 	while (!feof(arquivo))
 	{
+		result = fgets(Linha, 100, arquivo);
+		if (result == NULL)break;
+		string s = result;
 
+		arvore->Pesquisa(s);
 	}
 }
 
@@ -36,7 +43,7 @@ void PreencheVetor(const char caminho[], ArvoreBinaria* arvore) {
 		aux++;
 	}
 	arvore->Imprime();
-	RealizarComandos(arquivo);
+	RealizarComandos(arquivo, arvore);
 	fclose(arquivo);
 }
 

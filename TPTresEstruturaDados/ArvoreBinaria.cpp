@@ -37,6 +37,8 @@ void ArvoreBinaria::Imprime()
 
 void ArvoreBinaria::Limpa()
 {
+	ApagaRecursivo(raiz);
+	raiz = NULL;
 }
 
 void ArvoreBinaria::InsereRecursivo(TipoNo*& p, TipoItemArvore item)
@@ -90,6 +92,11 @@ void ArvoreBinaria::RemoveRecursiva(TipoNo*& p, std::string chave)
 
 void ArvoreBinaria::ApagaRecursivo(TipoNo* p)
 {
+	if (p != NULL) {
+		ApagaRecursivo(p->esq);
+		ApagaRecursivo(p->dir);
+		delete p;
+	}
 }
 
 void ArvoreBinaria::PorNivel()

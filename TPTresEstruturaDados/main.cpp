@@ -9,7 +9,8 @@ using namespace std;
 /// </summary>
 /// <param name="arquivo">Arquivo a ser lido</param>
 /// <param name="arvore">Arvore com os dados a serem tratados</param>
-void RealizarComandos(FILE* arquivo, ArvoreBinaria* arvore) {
+void RealizarComandos(FILE* arquivo, ArvoreBinaria* arvore) 
+{
 	char* result;
 	char Linha[100];
 
@@ -35,7 +36,8 @@ void RealizarComandos(FILE* arquivo, ArvoreBinaria* arvore) {
 /// </summary>
 /// <param name="caminho">Caminho do arquivo</param>
 /// <param name="arvore">Arvore a ser tratada.</param>
-void PreencheVetor(const char caminho[], ArvoreBinaria* arvore) {
+void PreencheVetor(const char caminho[], ArvoreBinaria* arvore) 
+{
 	char* result;
 	char Linha[100];
 	FILE* arquivo = fopen(caminho, "rt");

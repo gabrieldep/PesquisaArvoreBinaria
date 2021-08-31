@@ -71,12 +71,12 @@ void ArvoreBinaria::InsereRecursivo(TipoNo*& p, TipoItemArvore item)
 
 		TipoCelula* celula = new TipoCelula();
 		celula->SetDados(item.GetDados());
-		
+
 		p->dadosBinarios->Enfileira(*celula);
 	}
 	else {
 		if (item.GetNome() == p->GetNome()) {
-			TipoCelula *celula = new TipoCelula();
+			TipoCelula* celula = new TipoCelula();
 			celula->SetDados(item.GetDados());
 			p->dadosBinarios->Enfileira(*celula);
 		}
@@ -181,7 +181,7 @@ void ArvoreBinaria::Antecessor(TipoNo* q, TipoNo*& r)
 		return;
 	}
 	q->nome = r->nome;
-	q->dadosBinarios= r->dadosBinarios;
+	q->dadosBinarios = r->dadosBinarios;
 	q = r;
 	r = r->esq;
 	free(q);

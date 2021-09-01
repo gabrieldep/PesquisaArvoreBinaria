@@ -70,7 +70,6 @@ void PreencheVetor(const char caminho[], ArvoreBinaria* arvore)
 
 int main(int argc, const char* argv[])
 {
-	Fila* comandos = new Fila();
 	ArvoreBinaria* arvore = new ArvoreBinaria();
 	PreencheVetor(argv[1], arvore);
 }

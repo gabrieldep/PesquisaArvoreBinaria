@@ -1,11 +1,11 @@
-#include "ArvoreBinaria.h"
+ï»¿#include "ArvoreBinaria.h"
 #include "TipoItemArvore.h"
 #include "StringServices.h"
 #include <iostream>
 
 ArvoreBinaria::ArvoreBinaria()
 {
-	raiz = NULL;
+	raiz = nullptr;
 }
 
 ArvoreBinaria::~ArvoreBinaria()
@@ -23,11 +23,11 @@ void ArvoreBinaria::Insere(TipoItemArvore tipoItem)
 }
 
 /// <summary>
-/// Pesquisa na arvore binaria algum elemento que possui a chave igual à chave recebida
+/// Pesquisa na arvore binaria algum elemento que possui a chave igual ï¿½ chave recebida
 /// </summary>
 /// <param name="nome">Chave com o nome a ser procurado na arvore binaria</param>
 /// <returns></returns>
-TipoNo ArvoreBinaria::Pesquisa(std::string nome)
+TipoNo* ArvoreBinaria::Pesquisa(std::string nome)
 {
 	return PesquisaRecursiva(raiz, nome);
 }
@@ -55,32 +55,32 @@ void ArvoreBinaria::Imprime()
 void ArvoreBinaria::Limpa()
 {
 	ApagaRecursivo(raiz);
-	raiz = NULL;
+	raiz = nullptr;
 }
 
 /// <summary>
-/// Metodo auxiliar para adicionar elemento à arvore de maneira ordenada
+/// Metodo auxiliar para adicionar elemento ï¿½ arvore de maneira ordenada
 /// </summary>
-/// <param name="p">Nó atual a ser verificado.</param>
+/// <param name="p">Nï¿½ atual a ser verificado.</param>
 /// <param name="item">Item a ser adicionado.</param>
 void ArvoreBinaria::InsereRecursivo(TipoNo*& p, TipoItemArvore item)
 {
-	if (p == NULL) {
+	if (p == nullptr) {
 		p = new TipoNo();
 		p->SetNome(item.GetNome());
 
-		TipoCelula* celula = new TipoCelula();
-		celula->SetDados(item.GetDados());
+		TipoCelula celula = TipoCelula();
+		celula.SetDados(item.GetDados());
 
-		p->dadosBinarios->Enfileira(*celula);
+		p->dadosBinarios->Enfileira(celula);
 	}
 	else {
 		if (item.GetNome() == p->GetNome()) {
-			TipoCelula* celula = new TipoCelula();
-			celula->SetDados(item.GetDados());
-			p->dadosBinarios->Enfileira(*celula);
+			TipoCelula celula = TipoCelula();
+			celula.SetDados(item.GetDados());
+			p->dadosBinarios->Enfileira(celula);
 		}
-		else if (StringServices().VemAntes(item.GetNome(), p->GetNome())) {
+		else if (StringServices::VemAntes(item.GetNome(), p->GetNome())) {
 			InsereRecursivo(p->esq, item);
 		}
 		else {
@@ -92,49 +92,49 @@ void ArvoreBinaria::InsereRecursivo(TipoNo*& p, TipoItemArvore item)
 /// <summary>
 /// Metodo auxiliar para pesquisar elemento na arvore.
 /// </summary>
-/// <param name="p">Nó atual a ser verificado</param>
+/// <param name="p">Nï¿½ atual a ser verificado</param>
 /// <param name="chave">Chave para encontrar o elemento.</param>
 /// <returns>TipoNo correspondente a chave recebida</returns>
-TipoNo ArvoreBinaria::PesquisaRecursiva(TipoNo*& p, std::string chave)
+TipoNo* ArvoreBinaria::PesquisaRecursiva(TipoNo*& p, std::string chave)
 {
-	TipoNo aux;
+	TipoNo* aux = new TipoNo();
 
-	if (p == NULL) {
-		aux.SetNome("404");
+	if (p == nullptr) {
+		aux->SetNome("404");
 		return aux;
 	}
-	if (StringServices().VemAntes(chave, p->GetNome())) {
+	if (StringServices::VemAntes(chave, p->GetNome())) {
 		return PesquisaRecursiva(p->esq, chave);
 	}
-	else if (StringServices().VemAntes(p->GetNome(), chave)) {
+	else if (StringServices::VemAntes(p->GetNome(), chave)) {
 		return PesquisaRecursiva(p->dir, chave);
 	}
 	else {
-		return *p;
+		return p;
 	}
 }
 
 /// <summary>
 /// Metodo auxiliar para remover elemento na arvore.
 /// </summary>
-/// <param name="p">Nó atual a ser verificado</param>
+/// <param name="p">Nï¿½ atual a ser verificado</param>
 /// <param name="chave">Chave para encontrar o elemento a ser removido.</param>
 void ArvoreBinaria::RemoveRecursiva(TipoNo*& p, std::string chave)
 {
-	if (p == NULL) {
+	if (p == nullptr) {
 		return;
 	}
-	if (StringServices().VemAntes(chave, p->GetNome())) {
+	if (StringServices::VemAntes(chave, p->GetNome())) {
 		RemoveRecursiva(p->esq, chave);
 	}
-	else if (StringServices().VemAntes(p->GetNome(), chave)) {
+	else if (StringServices::VemAntes(p->GetNome(), chave)) {
 		RemoveRecursiva(p->dir, chave);
 	}
 	else {
-		if (p->esq == NULL) {
+		if (p->esq == nullptr) {
 			p = p->dir;
 		}
-		else if (p->dir == NULL) {
+		else if (p->dir == nullptr) {
 			p = p->esq;
 		}
 		else {
@@ -146,10 +146,10 @@ void ArvoreBinaria::RemoveRecursiva(TipoNo*& p, std::string chave)
 /// <summary>
 /// Metodo auxiliar para pesquisar elemento na arvore.
 /// </summary>
-/// <param name="p">Nó atual a ser deletado</param>
+/// <param name="p">Nï¿½ atual a ser deletado</param>
 void ArvoreBinaria::ApagaRecursivo(TipoNo* p)
 {
-	if (p != NULL) {
+	if (p != nullptr) {
 		ApagaRecursivo(p->esq);
 		ApagaRecursivo(p->dir);
 		delete p;
@@ -159,10 +159,10 @@ void ArvoreBinaria::ApagaRecursivo(TipoNo* p)
 /// <summary>
 /// Metodo que imprime elementos em ordem.
 /// </summary>
-/// <param name="p">Nó atual para ser impresso e procurar filhos.</param>
+/// <param name="p">Nï¿½ atual para ser impresso e procurar filhos.</param>
 void ArvoreBinaria::InOrdem(TipoNo* p)
 {
-	if (p != NULL) {
+	if (p != nullptr) {
 		InOrdem(p->esq);
 		p->ImprimeNome();
 		InOrdem(p->dir);
@@ -170,13 +170,13 @@ void ArvoreBinaria::InOrdem(TipoNo* p)
 }
 
 /// <summary>
-/// Método que reconstroi a arvore caso algum elemento seja retirado.
+/// Mï¿½todo que reconstroi a arvore caso algum elemento seja retirado.
 /// </summary>
 /// <param name="q">Elemento removido</param>
 /// <param name="r">Elemento que vai ocupar o lugar.</param>
 void ArvoreBinaria::Antecessor(TipoNo* q, TipoNo*& r)
 {
-	if (r->dir != NULL) {
+	if (r->dir != nullptr) {
 		Antecessor(q, r->dir);
 		return;
 	}

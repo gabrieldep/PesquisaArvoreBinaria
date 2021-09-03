@@ -1,9 +1,5 @@
 #include "StringServices.h"
 
-StringServices::StringServices()
-{
-}
-
 /// <summary>
 /// Verifica se a primeira string vem antes da segunda na ordem alfabetica
 /// </summary>

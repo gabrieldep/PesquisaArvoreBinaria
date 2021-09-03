@@ -7,6 +7,11 @@ TipoNo::TipoNo()
 	this->nome = "";
 }
 
+TipoNo::~TipoNo()
+{
+	delete this->dadosBinarios;
+}
+
 /// <summary>
 /// Define o valor do nome
 /// </summary>

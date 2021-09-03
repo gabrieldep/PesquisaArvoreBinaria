@@ -3,10 +3,10 @@
 class TipoCelula :
 	public TipoItem
 {
-	public:
-		TipoCelula();
-	private:
-		TipoCelula* prox;
+public:
+	TipoCelula();
+private:
+	TipoCelula* prox;
 
-		friend class Fila;
+	friend class Fila;
 };

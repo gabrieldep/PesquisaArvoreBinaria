@@ -80,12 +80,10 @@ void ArvoreBinaria::InsereRecursivo(TipoNo*& p, TipoItemArvore item)
 			celula.SetDados(item.GetDados());
 			p->dadosBinarios->Enfileira(celula);
 		}
-		else if (StringServices::VemAntes(item.GetNome(), p->GetNome())) {
+		else if (StringServices::VemAntes(item.GetNome(), p->GetNome()))
 			InsereRecursivo(p->esq, item);
-		}
-		else {
+		else
 			InsereRecursivo(p->dir, item);
-		}
 	}
 }
 
@@ -103,15 +101,12 @@ TipoNo* ArvoreBinaria::PesquisaRecursiva(TipoNo*& p, std::string chave)
 		aux->SetNome("404");
 		return aux;
 	}
-	if (StringServices::VemAntes(chave, p->GetNome())) {
+	if (StringServices::VemAntes(chave, p->GetNome()))
 		return PesquisaRecursiva(p->esq, chave);
-	}
-	else if (StringServices::VemAntes(p->GetNome(), chave)) {
+	else if (StringServices::VemAntes(p->GetNome(), chave))
 		return PesquisaRecursiva(p->dir, chave);
-	}
-	else {
+	else
 		return p;
-	}
 }
 
 /// <summary>
@@ -121,25 +116,19 @@ TipoNo* ArvoreBinaria::PesquisaRecursiva(TipoNo*& p, std::string chave)
 /// <param name="chave">Chave para encontrar o elemento a ser removido.</param>
 void ArvoreBinaria::RemoveRecursiva(TipoNo*& p, std::string chave)
 {
-	if (p == nullptr) {
+	if (p == nullptr)
 		return;
-	}
-	if (StringServices::VemAntes(chave, p->GetNome())) {
+	if (StringServices::VemAntes(chave, p->GetNome()))
 		RemoveRecursiva(p->esq, chave);
-	}
-	else if (StringServices::VemAntes(p->GetNome(), chave)) {
+	else if (StringServices::VemAntes(p->GetNome(), chave))
 		RemoveRecursiva(p->dir, chave);
-	}
 	else {
-		if (p->esq == nullptr) {
+		if (p->esq == nullptr)
 			p = p->dir;
-		}
-		else if (p->dir == nullptr) {
+		else if (p->dir == nullptr)
 			p = p->esq;
-		}
-		else {
+		else
 			Antecessor(p, p->esq);
-		}
 	}
 }
 

@@ -8,9 +8,8 @@
 void Fila::ImprimeRecursiva(TipoCelula* celula)
 {
 	celula->Imprime();
-	if (celula->prox != NULL) {
+	if (celula->prox != NULL)
 		ImprimeRecursiva(celula->prox);
-	}
 }
 
 /// <summary>
@@ -82,9 +81,8 @@ TipoCelula Fila::Desenfilera()
 	TipoCelula* p;
 	TipoCelula aux;
 
-	if (tamanho == 0) {
+	if (tamanho == 0)
 		throw "Fila vazia";
-	}
 
 	aux = *frente->prox;
 	p = frente;

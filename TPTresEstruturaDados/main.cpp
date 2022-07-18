@@ -20,14 +20,17 @@ void RealizarComandos(FILE* arquivo, ArvoreBinaria* arvore)
 	{
 		result = fgets(Linha, 100, arquivo);
 		if (result == NULL)break;
+
 		string s = result;
 		s = s.erase(s.length() - 1);
+
 		TipoNo* no = arvore->Pesquisa(s);
 		int number = 0;
 		Fila* fila = no->GetDados();
-		while (fila->GetTamanho() != 0) {
+
+		while (fila->GetTamanho() != 0)
 			number += stoi(fila->Desenfilera().GetDados(), 0, 2);
-		}
+
 		std::cout << no->GetNome() << " " << number << std::endl;
 		arvore->Remove(s);
 	}
